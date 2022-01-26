@@ -1,5 +1,7 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 // import PostItem from './PostItem';
+import uniqid from 'uniqid';
 
 function AddPost(){
     const [title, settitle] = useState('')
@@ -10,8 +12,14 @@ function AddPost(){
         var post = {
             title: title,
             imageurl: imageurl,
-            description: description
+            description: description,
+            postid: uniqid()
         }
+        axios.post('/api/post/addnewpost', post).then(res=> {
+            alert(res.data)
+        }).then(err => {
+            console.log(err)
+        })
         console.log(post)
 
     }
