@@ -33,4 +33,15 @@ router.post('/addnewpost', (req, res) => {
 
 })
 
+
+router.get('/getposts', (req, res) => {
+    PostModel.find({}, function(docs, err){
+        if(!err){
+            res.send(docs)
+        }else{
+            res.send(err)
+        }
+    })
+})
+
 module.exports = router;

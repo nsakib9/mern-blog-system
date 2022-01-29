@@ -1,9 +1,13 @@
 import React from 'react';
 
-function PostItem(){
+function PostItem({post}){
     return(
         <div>
-            <h1> This is Post Item</h1>
+           <div className="col-md-8">
+               <h1>{post.title}</h1>
+               <img src={post.imageurl} alt="" className="img-fluid" />
+               <p>{post.description}</p>
+           </div>
         </div>
     )
 }
